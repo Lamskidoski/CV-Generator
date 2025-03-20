@@ -1,0 +1,80 @@
+:root {
+  margin: 1rem;
+
+  --header-height: 3.5rem;
+
+  /* Colors */
+  --title-color: hsl(40, 48%, 12%);
+  --text-color: hsl(40, 24%, 24%);
+  --body-color: hsl(40, 4%, 88%);
+  --container-color: hsl(40, 48%, 88%);
+
+  /* Fonts */
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 1.74rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.875rem;
+
+  /* Font Weight */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* z-index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  @media screen and (min-width: 1024px) {
+    :root {
+      --biggest-font-size: 3.75rem;
+      --normal-font-size: 1rem;
+      --small-font-size: 0.938;
+    }
+  }
+}
+
+.homeContainer {
+  padding-top: 7.5rem;
+  text-align: center;
+  row-gap: 0;
+  font-family: var(--body-font);
+}
+
+.homeName,
+.homeProfession {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-semi-bold);
+
+  letter-spacing: 2px;
+}
+.homeProfession {
+  transform: translateY(-1.2rem);
+}
+.homeName {
+  margin-bottom: 0.25rem;
+}
+
+.homeBlob {
+  position: relative;
+  justify-self: center;
+}
+
+/* .homeProfil {
+    width: 230px;
+    height: 270px;
+    background: linear-gradient(132deg,
+                hsl(45, 6%, 70%) 25%,
+                hsl(30, 12%, 50%) 105%);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+} */
+
+.homeImg {
+  width: 205px;
+  transform: translateY(1px);
+  border-radius: 15rem 15rem 0 0;
+}

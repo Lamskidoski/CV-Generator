@@ -1,0 +1,23 @@
+{
+<<<<<<< HEAD
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+=======
+    "compilerOptions": {
+      "target": "es2020",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true,
+      "outDir": "dist"
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["dist"]
+  }
+  
+>>>>>>> c035965 (i realised i was in frontend map and not the whole map so adding backend)
