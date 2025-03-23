@@ -1,19 +1,16 @@
 import "./styles/CVAbout.css";
 
-const About = () => {
+type AboutProps = {
+  about: string;
+};
+
+const About = ({ about }: AboutProps) => {
   return (
     <section className="about" id="about">
       <h2 className="sectionTitle">PERSONAL INFO</h2>
 
       <div className="aboutContainer grid">
-        <p>
-          {" "}
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad,
-          laudantium iste, necessitatibus asperiores facere, voluptates quam
-          omnis quis temporibus inventore numquam reprehenderit nam ut excepturi
-          reiciendis sapiente officiis dignissimos labore consequatur minus
-          sequi.
-        </p>
+        <p>{about || "Ingen beskrivning har angetts än."}</p>
       </div>
 
       <a href="Lägg in CV" className="aboutButton">
@@ -29,7 +26,7 @@ const About = () => {
         </svg>
       </a>
 
-      <ul className="aboutSocial">
+      {/* <ul className="aboutSocial">
         <li>
           <a
             href="https://github.com/Lamskidoski"
@@ -59,7 +56,7 @@ const About = () => {
             LinkedIn
           </a>
         </li>
-      </ul>
+      </ul> */}
     </section>
   );
 };

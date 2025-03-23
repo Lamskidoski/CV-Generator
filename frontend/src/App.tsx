@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import CVForm from "./components/CVForm";
-import CVPreview from "./components/CVPreview";
-import CVDownload from "./components/CVDownload";
+// import CVPreview from "./components/CVPreview";
+// import CVDownload from "./components/CVDownload";
 import "./App.css";
 import Header from "./components/CVHeader";
 import Main from "./components/CVMain";
@@ -43,7 +43,7 @@ const App = () => {
         {/* Formulär där användaren fyller i sin information */}
         <CVForm setCvData={setCvData} />
         <Main />
-        <About />
+        <About about={cvData.about} />
         <Skills skills={cvData.skills} />
         <Work work={cvData.work} />
         <Education education={cvData.education} />

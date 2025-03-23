@@ -1,23 +1,44 @@
 .cv-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 400px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: auto;
 }
 
 .cv-form input,
 .cv-form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .cv-form button {
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.workInputContainer {
+  display: grid;
+}
+
+.educationInputContainer {
+  display: grid;
+}
+
+.skillsInputContainer {
+  display: grid;
+}
+
+.inputList {
+  display: flex;
+  flex-direction: column;
+}
+.inputButton {
+  width: 30%;
+  margin-left: 35%;
 }

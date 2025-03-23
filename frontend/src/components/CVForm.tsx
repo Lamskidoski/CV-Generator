@@ -18,7 +18,7 @@ type CVFormProps = {
   setCvData: (data: {
     name: string;
     email: string;
-    about?: string;
+    about: string;
     work: WorkEntry[]; // ✅ Ändrat från experiences till work
     education: EducationEntry[];
     skills: string[];
@@ -29,6 +29,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    about: "",
     work: [] as WorkEntry[], // ✅ Bytt namn här
     education: [] as EducationEntry[],
     skills: [] as string[],
@@ -40,9 +41,9 @@ const CVForm = ({ setCvData }: CVFormProps) => {
   const [eduYear, setEduYear] = useState("");
 
   // ✅ State för jobberfarenhet
-  const [jobTitle, setJobTitle] = useState("");
-  const [jobCompany, setJobCompany] = useState("");
-  const [jobYear, setJobYear] = useState("");
+  const [workTitle, setWorkTitle] = useState("");
+  const [workCompany, setWorkCompany] = useState("");
+  const [workYear, setWorkYear] = useState("");
 
   // ✅ State för skills
   const [newSkill, setNewSkill] = useState("");
@@ -84,21 +85,21 @@ const CVForm = ({ setCvData }: CVFormProps) => {
 
   // ✅ Lägg till jobb
   const handleAddJob = () => {
-    if (jobTitle && jobCompany && jobYear) {
+    if (workTitle && workCompany && workYear) {
       setFormData((prev) => ({
         ...prev,
         work: [
           ...prev.work,
           {
-            title: jobTitle.trim(),
-            company: jobCompany.trim(),
-            year: jobYear.trim(),
+            title: workTitle.trim(),
+            company: workCompany.trim(),
+            year: workYear.trim(),
           },
         ],
       }));
-      setJobTitle("");
-      setJobCompany("");
-      setJobYear("");
+      setWorkTitle("");
+      setWorkCompany("");
+      setWorkYear("");
     }
   };
 
@@ -152,39 +153,50 @@ const CVForm = ({ setCvData }: CVFormProps) => {
         required
       />
 
+      <textarea
+        name="about"
+        placeholder="Om dig själv"
+        value={formData.about}
+        onChange={handleChange}
+      />
+
       {/* ✅ Jobb-del */}
-      <div className="jobInputContainer">
+      <div className="workInputContainer">
         <input
           type="text"
           placeholder="Titel (t.ex. Reseledare)"
-          value={jobTitle}
-          onChange={(e) => setJobTitle(e.target.value)}
+          value={workTitle}
+          onChange={(e) => setWorkTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="Företag (t.ex. Nordic Invasion AB)"
-          value={jobCompany}
-          onChange={(e) => setJobCompany(e.target.value)}
+          value={workCompany}
+          onChange={(e) => setWorkCompany(e.target.value)}
         />
         <input
           type="text"
           placeholder="År (t.ex. 2022–2024)"
-          value={jobYear}
-          onChange={(e) => setJobYear(e.target.value)}
+          value={workYear}
+          onChange={(e) => setWorkYear(e.target.value)}
         />
         <button type="button" onClick={handleAddJob}>
           Lägg till erfarenhet
         </button>
       </div>
-      <ul className="jobPreview">
-        {formData.work.map((job, index) => (
-          <li key={index}>
-            <strong>{job.title}</strong>
+      <ul className="workPreview">
+        {formData.work.map((work, index) => (
+          <li className="inputList" key={index}>
+            {work.title}
             <br />
-            {job.company}
+            {work.company}
             <br />
-            {job.year}
-            <button type="button" onClick={() => handleRemoveJob(index)}>
+            {work.year}
+            <button
+              className="inputButton"
+              type="button"
+              onClick={() => handleRemoveJob(index)}
+            >
               x
             </button>
           </li>
@@ -217,13 +229,17 @@ const CVForm = ({ setCvData }: CVFormProps) => {
       </div>
       <ul className="educationPreview">
         {formData.education.map((edu, index) => (
-          <li key={index}>
-            <strong>{edu.title}</strong>
+          <li className="inputList" key={index}>
+            {edu.title}
             <br />
             {edu.school}
             <br />
             {edu.year}
-            <button type="button" onClick={() => handleRemoveEducation(index)}>
+            <button
+              className="inputButton"
+              type="button"
+              onClick={() => handleRemoveEducation(index)}
+            >
               x
             </button>
           </li>
@@ -244,9 +260,13 @@ const CVForm = ({ setCvData }: CVFormProps) => {
       </div>
       <ul className="skillsPreview">
         {formData.skills.map((skill, index) => (
-          <li key={index}>
+          <li className="inputList" key={index}>
             {skill}
-            <button type="button" onClick={() => handleRemoveSkill(index)}>
+            <button
+              className="inputButton"
+              type="button"
+              onClick={() => handleRemoveSkill(index)}
+            >
               x
             </button>
           </li>
