@@ -100,3 +100,13 @@
   opacity: 1;
   transform: translateY(-4px);
 }
+.themeButton {
+  cursor: pointer;
+}
+
+body.darkTheme {
+  --title-color: hsl(40, 48%, 90%);
+  --text-color: hsl(40, 12%, 70%);
+  --body-color: hsl(40, 12%, 16%);
+  --container-color: hsl(40, 20%, 8%);
+}

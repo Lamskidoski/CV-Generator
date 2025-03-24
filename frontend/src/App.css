@@ -111,3 +111,7 @@ button {
 .resumeButtonLink:hover {
   text-decoration: underline;
 }
+.noTitle {
+  text-align: center;
+  font-family: var(--body-font);
+}

@@ -1,3 +1,4 @@
+import "./styles/CVEducation.css";
 type EducationEntry = {
   title: string;
   school: string;
@@ -15,7 +16,7 @@ const Education = ({ education }: EducationProps) => {
       <div className="educationContainer">
         {education.length > 0 ? (
           education.map((edu, index) => (
-            <div key={index}>
+            <div className="educationInput" key={index}>
               <h2 className="resumeTitle">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,13 +30,14 @@ const Education = ({ education }: EducationProps) => {
                 {edu.title}
               </h2>
               <div className="resumeData">
-                <span>{edu.school}</span>
-                <span>{edu.year}</span>
+                <span>
+                  {edu.school} | {edu.year}
+                </span>
               </div>
             </div>
           ))
         ) : (
-          <p>Ingen utbildning har angetts än.</p>
+          <p className="noTitle">Ingen utbildning har angetts än.</p>
         )}
       </div>
     </section>

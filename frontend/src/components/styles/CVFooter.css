@@ -55,4 +55,5 @@
 
 .footerInfo {
   font-size: var(--small-font-size);
+  font-family: var(--body-font);
 }

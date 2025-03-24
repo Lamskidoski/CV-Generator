@@ -1,16 +1,22 @@
 import "./styles/CVFooter.css";
-const Footer = () => {
+
+type FooterProps = {
+  email: string;
+  phone: string;
+};
+
+const Footer = ({ email, phone }: FooterProps) => {
   return (
     <footer className="footer">
       <div className="footerContainer">
         <div>
           <h3 className="footerTitle">PHONE: </h3>
-          <span className="footerInfo">(+46) 123 12 10 123</span>
+          <span className="footerInfo">{phone || "(+46) 123 12 10 123"}</span>
         </div>
 
         <div>
           <h3 className="footerTitle">EMAIL</h3>
-          <span className="footerInfo">EMAIL@EMAIL.COM</span>
+          <span className="footerInfo">{email || "email@email.com"}</span>
         </div>
       </div>
     </footer>

@@ -1,9 +1,3 @@
-// import axios from 'axios';
-
-// export const createCV = async (cvData: object) => {
-//     return await axios.post('http://localhost:5173/api/cv', cvData);
-// };
-
 import axios from "axios";
 
 // Bas-URL till din backend

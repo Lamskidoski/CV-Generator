@@ -12,7 +12,6 @@ import Education from "./components/CVEducation";
 import Work from "./components/CVWork";
 import Footer from "./components/CVFooter";
 
-// ✅ Typ för jobberfarenhet
 type WorkEntry = {
   title: string;
   company: string;
@@ -26,28 +25,27 @@ type EducationEntry = {
 };
 
 const App = () => {
-  // ✅ Uppdaterad state med work (istället för experiences)
   const [cvData, setCvData] = useState({
     name: "",
     about: "",
+    phone: "",
     email: "",
     skills: [] as string[],
     education: [] as EducationEntry[],
-    work: [] as WorkEntry[], // ✅ Här läggs arbeten in
+    work: [] as WorkEntry[],
   });
 
   return (
     <div className="app-container">
       <Router>
         <Header />
-        {/* Formulär där användaren fyller i sin information */}
         <CVForm setCvData={setCvData} />
-        <Main />
+        <Main name={cvData.name} />
         <About about={cvData.about} />
         <Skills skills={cvData.skills} />
         <Work work={cvData.work} />
         <Education education={cvData.education} />
-        <Footer />
+        <Footer email={cvData.email} phone={cvData.phone} />
         <Routes>
           <Route path="/" element={<h2></h2>} />
         </Routes>

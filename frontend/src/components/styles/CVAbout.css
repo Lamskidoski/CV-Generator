@@ -39,11 +39,10 @@
   border-bottom: 3px solid var(--title-color);
   padding-bottom: 5px;
   font-family: var(--body-font);
-  margin-bottom: 2rem;
+  margin: 1rem 0 1rem 0;
 }
 
 .aboutContainer {
-  text-align: start;
   font-family: var(--body-font);
 }
 .aboutButton {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles/CVForm.css";
 
-// ✅ 1. Typer
+// ✅ 1. Types
 type EducationEntry = {
   title: string;
   school: string;
@@ -18,8 +18,9 @@ type CVFormProps = {
   setCvData: (data: {
     name: string;
     email: string;
+    phone: string;
     about: string;
-    work: WorkEntry[]; // ✅ Ändrat från experiences till work
+    work: WorkEntry[];
     education: EducationEntry[];
     skills: string[];
   }) => void;
@@ -29,23 +30,24 @@ const CVForm = ({ setCvData }: CVFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     about: "",
-    work: [] as WorkEntry[], // ✅ Bytt namn här
+    work: [] as WorkEntry[],
     education: [] as EducationEntry[],
     skills: [] as string[],
   });
 
-  // ✅ State för utbildning
+  // ✅ State for education
   const [eduTitle, setEduTitle] = useState("");
   const [eduSchool, setEduSchool] = useState("");
   const [eduYear, setEduYear] = useState("");
 
-  // ✅ State för jobberfarenhet
+  // ✅ State for work
   const [workTitle, setWorkTitle] = useState("");
   const [workCompany, setWorkCompany] = useState("");
   const [workYear, setWorkYear] = useState("");
 
-  // ✅ State för skills
+  // ✅ State for skills
   const [newSkill, setNewSkill] = useState("");
 
   // 🔄 Input change handler
@@ -56,7 +58,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // ✅ Lägg till utbildning
+  // Add utbildning
   const handleAddEducation = () => {
     if (eduTitle && eduSchool && eduYear) {
       setFormData((prev) => ({
@@ -83,7 +85,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
     }));
   };
 
-  // ✅ Lägg till jobb
+  // Add jobb
   const handleAddJob = () => {
     if (workTitle && workCompany && workYear) {
       setFormData((prev) => ({
@@ -110,7 +112,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
     }));
   };
 
-  // ✅ Lägg till skill
+  // add skill
   const handleAddSkill = () => {
     if (newSkill.trim() !== "") {
       setFormData((prev) => ({
@@ -128,7 +130,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
     }));
   };
 
-  // ✅ Skicka formuläret
+  // ✅ send formula
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setCvData(formData);
@@ -153,6 +155,14 @@ const CVForm = ({ setCvData }: CVFormProps) => {
         required
       />
 
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Telefonnummer"
+        value={formData.phone}
+        onChange={handleChange}
+      />
+
       <textarea
         name="about"
         placeholder="Om dig själv"
@@ -160,23 +170,23 @@ const CVForm = ({ setCvData }: CVFormProps) => {
         onChange={handleChange}
       />
 
-      {/* ✅ Jobb-del */}
+      {/* Work */}
       <div className="workInputContainer">
         <input
           type="text"
-          placeholder="Titel (t.ex. Reseledare)"
+          placeholder="Titel (t.ex. Reseledeare)"
           value={workTitle}
           onChange={(e) => setWorkTitle(e.target.value)}
         />
         <input
           type="text"
-          placeholder="Företag (t.ex. Nordic Invasion AB)"
+          placeholder="Företag (t.ex. SAS)"
           value={workCompany}
           onChange={(e) => setWorkCompany(e.target.value)}
         />
         <input
           type="text"
-          placeholder="År (t.ex. 2022–2024)"
+          placeholder="År (t.ex. 2022 – 2024)"
           value={workYear}
           onChange={(e) => setWorkYear(e.target.value)}
         />
@@ -203,7 +213,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
         ))}
       </ul>
 
-      {/* ✅ Utbildning-del */}
+      {/* Educations */}
       <div className="educationInputContainer">
         <input
           type="text"
@@ -250,7 +260,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
       <div className="skillsInputContainer">
         <input
           type="text"
-          placeholder="Lägg till en färdighet"
+          placeholder="Lägg till en Skill"
           value={newSkill}
           onChange={(e) => setNewSkill(e.target.value)}
         />
@@ -260,7 +270,7 @@ const CVForm = ({ setCvData }: CVFormProps) => {
       </div>
       <ul className="skillsPreview">
         {formData.skills.map((skill, index) => (
-          <li className="inputList" key={index}>
+          <li className="inputListSkill" key={index}>
             {skill}
             <button
               className="inputButton"

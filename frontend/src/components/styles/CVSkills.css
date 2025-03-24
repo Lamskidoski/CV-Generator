@@ -34,16 +34,11 @@
   }
 }
 
-.skillsContent,
-.skillsList {
-  display: grid;
-}
-
 .skillsList {
   grid-template-columns: repeat(2, max-content);
   column-gap: 3rem;
-  align-items: baseline;
   row-gap: 1rem;
+  text-align: start;
 }
 
 .skillsList li {

@@ -1,3 +1,4 @@
+import "./styles/CVWork.css";
 type WorkEntry = {
   title: string;
   company: string;
@@ -16,7 +17,7 @@ const Work = ({ work }: WorkProps) => {
       <div className="WorkContainer">
         {work.length > 0 ? (
           work.map((work, index) => (
-            <div key={index}>
+            <div className="workInput" key={index}>
               <h2 className="resumeTitle">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -34,12 +35,11 @@ const Work = ({ work }: WorkProps) => {
                 <span>
                   {work.title} | {work.year}
                 </span>
-                <p>Work</p>
               </div>
             </div>
           ))
         ) : (
-          <p>Inga jobberfarenheter tillagda ännu.</p>
+          <p className="noTitle">Inga jobberfarenheter tillagda ännu.</p>
         )}
       </div>
     </section>
